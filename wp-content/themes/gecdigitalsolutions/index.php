@@ -45,6 +45,7 @@
 							</div>
 							<?php } 
 							} else { ?>
+							
 							<!-- EMPTY PORFOLIO -->
 							<div class="entry-content">
 								<p class="comingsoon">More blog portfolios will be posted here soon. Please check back next time.</p>
