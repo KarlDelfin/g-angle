@@ -1,28 +1,26 @@
 <div id="service">
 	<div class="wrapper">
 		<div class="service_con">
-			<div class="service_info_con">
-				<div class="service_infos">
-					<h2 class="hdng"><?php the_field('service_heading')?></div></h2>
-				</div>
-				<div class="service_box " >
-					<section class="service_boxes wow slideInLeft" data-wow-duration="2636ms">
-						<figure><img src="<?php bloginfo('template_url');?>/assets/images/icons/education-icon.png" alt="education icon"/></figure>
-						<div class="service_info"><?php the_field('service_box1')?></div>	
-					</section>
+			<div class="service_info">
+                <h2 class="hdng"><?php the_field('service_heading')?></h2>
+            </div>
+            <div class="service_box " >
+                <section class="service_boxes wow slideInLeft" data-wow-duration="2636ms">
+                    <figure><img src="<?php bloginfo('template_url');?>/assets/images/icons/education-icon.png" alt="education icon"/></figure>
+                    <div class="service_info"><?php the_field('service_box1')?></div>	
+                </section>
 
-					<section class="service_boxes wow zoomIn" data-wow-duration="3000ms">
-						<figure><img src="<?php bloginfo('template_url');?>/assets/images/icons/business-resource-icon.png" alt="business resources icon"/></figure>
-						<div class="service_info"><?php the_field('service_box2'); ?></div>
-					</section>
+                <section class="service_boxes wow zoomIn" data-wow-duration="3000ms">
+                    <figure><img src="<?php bloginfo('template_url');?>/assets/images/icons/business-resource-icon.png" alt="business resources icon"/></figure>
+                    <div class="service_info"><?php the_field('service_box2'); ?></div>
+                </section>
 
-					<section class="service_boxes wow slideInRight" data-wow-duration="2636ms">
-						<figure><img src="<?php bloginfo('template_url');?>/assets/images/icons/more-services-icon.png" alt="more services icon"/></figure>
-						<div class="service_info"><?php the_field('service_box3')?></div>
-					</section>
-				</div>
-			</div>
-		</div>
+                <section class="service_boxes wow slideInRight" data-wow-duration="2636ms">
+                    <figure><img src="<?php bloginfo('template_url');?>/assets/images/icons/more-services-icon.png" alt="more services icon"/></figure>
+                    <div class="service_info"><?php the_field('service_box3')?></div>
+                </section>
+            </div>
+        </div>
 	</div>
 </div>
 

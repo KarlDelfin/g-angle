@@ -64,7 +64,9 @@
 					<?php } ?>
 
 					<div class="entry-content">
-						<?php the_post_thumbnail('full', array('class' => 'thumb_right_dd'));?>
+						<figure style="margin: 0 auto; text-align: center;">
+							<?php the_post_thumbnail('full');?>
+						</figure>
 						<?php the_content(); ?>
 
 						<!-- SITEMAP PAGE -->

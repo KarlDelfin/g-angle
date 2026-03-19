@@ -1,15 +1,15 @@
 <div id="hero">
   <div class="wrapper">
-    <div class="hero_con">
       <!-- HOME HERO -->
       <?php if (is_front_page() ) { ?>
-         <div class="slider">
+          <div class="hero_con">
           <figure><img src="<?php bloginfo('template_url');?>/assets/images/hero/default.jpg" alt="GEC Digital Solutions" /></figure> 
         </div>
       <div class="hero_info wow fadeInLeft" data-wow-duration="2136ms">
         <h2><?php the_field('hero_heading') ?></h2>
         <p><?php the_field('hero_info') ?></p>
       </div>
+      
       <!-- NON-HOME HERO -->
       <?php } else { ?>
       <div class="non_ban">
@@ -23,6 +23,5 @@
         </div>
       </div>
       <?php }?>
-    </div>
   </div>
 </div>
