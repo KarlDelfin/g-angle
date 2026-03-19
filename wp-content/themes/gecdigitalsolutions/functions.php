@@ -220,50 +220,6 @@ function twentysixteen_javascript_detection() {
 add_action( 'wp_head', 'twentysixteen_javascript_detection', 0 );
 
 /**
- * Enqueues scripts and styles.
- *
- * @since Twenty Sixteen 1.0
- */
-function twentysixteen_scripts() {
-	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'twentysixteen-fonts', twentysixteen_fonts_url(), array(), null );
-
-	// Load the Internet Explorer specific stylesheet.
-	wp_enqueue_style( 'twentysixteen-ie', get_template_directory_uri() . '/css/ie.css', array( 'twentysixteen-style' ), '20160412' );
-	wp_style_add_data( 'twentysixteen-ie', 'conditional', 'lt IE 10' );
-
-	// Load the Internet Explorer 8 specific stylesheet.
-	wp_enqueue_style( 'twentysixteen-ie8', get_template_directory_uri() . '/css/ie8.css', array( 'twentysixteen-style' ), '20160412' );
-	wp_style_add_data( 'twentysixteen-ie8', 'conditional', 'lt IE 9' );
-
-	// Load the Internet Explorer 7 specific stylesheet.
-	wp_enqueue_style( 'twentysixteen-ie7', get_template_directory_uri() . '/css/ie7.css', array( 'twentysixteen-style' ), '20160412' );
-	wp_style_add_data( 'twentysixteen-ie7', 'conditional', 'lt IE 8' );
-
-	// Load the html5 shiv.
-	wp_enqueue_script( 'twentysixteen-html5', get_template_directory_uri() . '/js/html5.js', array(), '3.7.3' );
-	wp_script_add_data( 'twentysixteen-html5', 'conditional', 'lt IE 9' );
-
-	// wp_enqueue_script( 'twentysixteen-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20160412', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-
-	if ( is_singular() && wp_attachment_is_image() ) {
-		wp_enqueue_script( 'twentysixteen-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20160412' );
-	}
-
-	// wp_enqueue_script( 'twentysixteen-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20160412', true );
-
-	wp_localize_script( 'twentysixteen-script', 'screenReaderText', array(
-		'expand'   => __( 'expand child menu', 'twentysixteen' ),
-		'collapse' => __( 'collapse child menu', 'twentysixteen' ),
-	) );
-}
-add_action( 'wp_enqueue_scripts', 'twentysixteen_scripts' );
-
-/**
  * Adds custom classes to the array of body classes.
  *
  * @since Twenty Sixteen 1.0
@@ -465,7 +421,7 @@ function get_includes( $name = null ) {
 
 	$templates = array();
 	$name = (string) $name;
-	$templates[] = "includes/{$name}.php";
+	$templates[] = "template-parts/{$name}.php";
 
 	// Backward compat code will be removed in a future release
 	if ('' == locate_template($templates, true))
@@ -722,26 +678,10 @@ add_shortcode( 'page_intro', 'get_page_intro' );
 /* End of Page Intro Shortcode */
 
 
- // para ni cya sa ma delete ang sample post sa WP 'Sample Posts'
-$post = get_page_by_title('Hello world!',OBJECT,'post');
-if ($post)
- wp_delete_post($post->ID,true);
 
-// para ni cya sa ma delete ang sample page sa WP 'Sample Page' and 'Privacy Policy'
-$defaultPage = get_page_by_title( 'Sample Page' );
-//$defaultPage1 = get_page_by_title( 'Privacy Policy' );
-// wp_delete_post( $defaultPage->ID, $bypass_trash = true );
-//wp_delete_post( $defaultPage1->ID, $bypass_trash = true );
 
-function check_pages_live(){
-			 if(get_page_by_title( 'Home' ) == NULL) {
-					 create_pages_fly('Home');
-			 }
-if(get_page_by_title( 'sitemap' ) == NULL) {
-	 create_pages_fly('Sitemap');
- }
-}
-add_action('init','check_pages_live');
+
+
 function create_pages_fly($pageName) {
  $createPage = array(
 	 'post_title'    => $pageName,
@@ -756,8 +696,6 @@ function create_pages_fly($pageName) {
  wp_insert_post( $createPage );
 }
 
-$home = get_page_by_title( 'Home' );
-update_option( 'page_on_front', $home->ID );
 update_option( 'show_on_front', 'page' );
 
 add_filter( 'post_thumbnail_size', function( $size )
@@ -865,3 +803,20 @@ function get_excerpt( $count ) {
 	}
 	endif;
 /** End of WordPress Team Used Functions **/
+
+
+// function contact_email_plain_shortcode() {
+//     $email = get_field('contact_email');
+//     return $email ? esc_html($email) : '';
+// }
+// add_shortcode('contact_email_plain', 'contact_email_plain_shortcode');
+
+/**
+ * Bare bones universal ACF shortcode
+ * Usage: [acf contact_email]
+ */
+function bare_acf($atts) {
+    $field_name = $atts[0]; // Just grab the first attribute
+    return get_field($field_name);
+}
+add_shortcode('acf', 'bare_acf');
