@@ -78,7 +78,7 @@
 									<?php } else if (has_post_thumbnail()) { ?>
 										<?php the_post_thumbnail('full');?>
 									<?php } else { ?>
-										<img src="<?php bloginfo("template_url") ?>/assets/images/blog/default.png" alt="<?php echo get_bloginfo('name');?>"/>
+										<img src="<?php bloginfo("template_url") ?>/assets/images/portfolio/default.png" alt="<?php echo get_bloginfo('name');?>"/>
 									<?php } ?>
 								</div>
 

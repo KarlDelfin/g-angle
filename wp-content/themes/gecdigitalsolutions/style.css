@@ -18,7 +18,6 @@ input:not([type='radio']):not([type='checkbox']), textarea, select { -webkit-app
 form, label { -webkit-text-size-adjust: 100%; }
 mark { background-color: transparent; color: inherit; }
 
-
 :root {
 	--priFont: Inter, Helvetica, sans-serif; 
 	--secFont: 'Poppins', sans-serif; 
@@ -28,7 +27,6 @@ mark { background-color: transparent; color: inherit; }
 	--bodyColor:#0e0e0e;
  }
 
-/*preset*/
 body { font-family: var(--priFont); font-size: 18px; line-height: 22px; color: var(--secColor); position: relative;max-width: 1920px; margin: auto;}
 body, html { overflow-x: hidden; }
 body.active { overflow: hidden; width: 100%; height: 100%; position: fixed !important; }
@@ -133,11 +131,10 @@ header {position: static; width: 100%; z-index: 9999; background: var(--secColor
 
 /* HERO */
 #hero {padding:0 15px; position: relative;}
-
-.hero_con { width: 1920px; margin-left: 50%; transform: translateX(-50%); position: relative; background: #000;}
-.hero_info { position: absolute; top: 140px; max-width: 750px; width: 100%; text-align: left;}
-.hero_info h2 { line-height:70px;  color: var(--thirdColor); font-family: var(--secFont); line-height: 100%; font-size: 50px; font-weight: 700;}
-.hero_info p { color: var(--thirdColor); line-height: 27px; margin-top:20px;} 
+	.hero_con { width: 1920px; margin-left: 50%; transform: translateX(-50%); position: relative; background: #000; z-index: -1;}
+	.hero_info { position: absolute; top: 140px; max-width: 750px; width: 100%; text-align: left;}
+	.hero_info h2 { line-height:70px;  color: var(--thirdColor); font-family: var(--secFont); line-height: 100%; font-size: 50px; font-weight: 700;}
+	.hero_info p { color: var(--thirdColor); line-height: 27px; margin-top:20px;} 
 
 
 /* MAIN */
@@ -218,13 +215,7 @@ header {position: static; width: 100%; z-index: 9999; background: var(--secColor
 /* FOOOTER */
 .footer_top { 	background: var(--priColor);padding:0 15px; }
 	.footer_top_con {min-height: 0; padding: 60px 0;}
-	.footer_holder{ }
-	.footer_logo {display: none;}
-	.footer_holder {}
-	.contact_info { }
-	.footer_logo { margin-bottom: 20px; border-bottom: 3px solid var(--thirdColor); text-align: center; height: 138px; max-width: 347px; margin:40px 3px 26px; }
-	.footer_logo_con { max-width: 328px; width: 100%; max-width: 347px; margin-right: 3px; }
-	.footer_logo img {}
+
 	.footer_btm { background:var(--secColor);padding:0 15px; }
 	.footer_btm_con { min-height: 64px; padding: 30px 0;}
 
@@ -237,6 +228,7 @@ header {position: static; width: 100%; z-index: 9999; background: var(--secColor
 	.footer_nav ul li a:hover, .footer_nav ul li a:active, .footer_nav ul li.current_page_item a { color:var(--priColor)}
 	.footer_nav ul li:last-child:after { display: none; }
 	.footer_comp {margin: 0; position: relative; font-weight: 600;}
+
 	.copyright { color: var(--thirdColor); text-align: center; }
 	.copyrigh_text:hover { text-decoration: none !important; }
 	.copyright a { color: var(--thirdColor); }

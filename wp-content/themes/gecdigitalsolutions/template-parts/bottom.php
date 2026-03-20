@@ -58,7 +58,7 @@
                                     </figure>
                                 <?php } else { ?>
                                     <figure>
-                                        <img src="<?php bloginfo("template_url") ?>/assets/images/blog/default.png" alt="main logo" />
+                                        <img src="<?php bloginfo("template_url") ?>/assets/images/portfolio/default.png" alt="main logo" />
                                     </figure>
                                 <?php } ?>
                                 

@@ -85,6 +85,7 @@ $(document).ready(function(){
 
 	swap_this();
 
+	
 	// Reset all configs when width > 800
 	$(window).resize(function(){
 		window_width = $(this).width();
@@ -128,8 +129,18 @@ $(document).ready(function(){
 	/* WOW */
 	new WOW().init();
 
-	/* LENIS SCROLL */
 	const lenis = new Lenis()
-	gsap.ticker.add((time)=>{ lenis.raf(time * 1000) })
+	gsap.ticker.add((time)=>{ lenis.raf(time * 600) })
 	gsap.ticker.lagSmoothing(0)
+
+	$(document).ready(function(){
+		if ($(window).width() >= 1025) {
+			$(window).on('scroll', function() {
+				var windowScroll = $(window).scrollTop();
+				$('.hero_con').css('top', windowScroll * 0.45);
+			});
+		}
+	});
 });
+
+
