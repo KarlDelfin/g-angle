@@ -19,48 +19,102 @@
 					
 					<!-- PORTFOLIO PAGE -->
 					<?php } if(is_page('portfolio')) { ?>
-						<div class="blog_wrapper">
-							<?php $args = array( 'post_status' => 'publish', 'post_type' =>  array('post', 'second_blog'), 'paged'=>$paged, 'category__not_in' => array(6));
-							$loop = new WP_Query( $args );
-							if ( $loop->have_posts() ) {
-								while ( $loop->have_posts() ) {
-									$loop->the_post();
+					<div class="blog_wrapper">
+
+						<!-- CATEGORY FILTER BUTTONS -->
+						<div class="category_filters">
+							<?php $current_cat = isset($_GET['cat']) ? intval($_GET['cat']) : 0; ?>
+
+							<a href="<?php echo get_permalink(); ?>"
+							style="display:inline-block;padding:8px 16px;margin:4px;text-decoration:none;
+							background-color:<?php echo ($current_cat == 0) ? 'var(--priColor)' : 'var(--secColor)'; ?>;
+							color:#fff;border-radius:4px;">
+							All
+							</a>
+
+							<?php
+							$categories = get_categories();
+							foreach ($categories as $category) {
+								$is_active = ($current_cat == $category->term_id);
+								echo '<a href="' . get_permalink() . '?cat=' . $category->term_id . '"
+								style="display:inline-block;padding:8px 16px;margin:4px;text-decoration:none;
+								background-color:' . ($is_active ? 'var(--priColor)' : 'var(--secColor)') . ';
+								color:#fff;border-radius:4px;">
+								' . $category->name . '</a>';
+							}
 							?>
-							<div class="blog_cont">
-								<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-									<div class="img_wrapper">
-										<?php
-										$content = get_the_content();
-										$count = preg_match('/src=(["\'])(.*?)\1/', $content, $match);
-										if ($count != FALSE){ $url = ($match[2] . "\n"); ?> <img src="<?php echo $url; ?>" alt="image"/>
-										<?php } else if (has_post_thumbnail()) { ?> <?php the_post_thumbnail('full');?>
-										<?php } else { ?> <img src="<?php bloginfo("template_url") ?>/assets/images/blog/default.png" alt="<?php echo get_bloginfo('name');?>"/> <?php } ?>
-									</div>
-									<div class="info_cont">
-										<h2 class="blog_heading"><a href="<?php the_permalink(); ?>"><?php echo wp_trim_words( get_the_title(), 11, '...' ); ?></a></h2>
-										<p><?php echo get_excerpt(250); ?></p>
-										<a class="read_more" href="<?php the_permalink(); ?>">Read More &rsaquo;</a>
-									</div>
+						</div>
+
+						<?php
+						$cat_filter = isset($_GET['cat']) ? intval($_GET['cat']) : '';
+
+						$args = array(
+							'post_status' => 'publish',
+							'post_type'   => array('post', 'second_blog'),
+							'paged'       => $paged,
+							'posts_per_page' => 3, // 👈 LIMIT TO 3
+							'category__not_in' => array(6),
+						);
+						// APPLY CATEGORY FILTER
+						if (!empty($cat_filter)) {
+							$args['cat'] = $cat_filter;
+						}
+						$loop = new WP_Query($args);
+
+						if ($loop->have_posts()) {
+							while ($loop->have_posts()) {
+								$loop->the_post();
+						?>
+						<div class="blog_cont">
+							<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+								<div class="img_wrapper">
+									<?php
+									$content = get_the_content();
+									$count = preg_match('/src=(["\'])(.*?)\1/', $content, $match);
+
+									if ($count != FALSE){
+										$url = ($match[2] . "\n"); ?>
+										<img src="<?php echo $url; ?>" alt="image"/>
+									<?php } else if (has_post_thumbnail()) { ?>
+										<?php the_post_thumbnail('full');?>
+									<?php } else { ?>
+										<img src="<?php bloginfo("template_url") ?>/assets/images/blog/default.png" alt="<?php echo get_bloginfo('name');?>"/>
+									<?php } ?>
+								</div>
+
+								<div class="info_cont">
+									<h2 class="blog_heading">
+										<a href="<?php the_permalink(); ?>">
+											<?php echo wp_trim_words(get_the_title(), 11, '...'); ?>
+										</a>
+									</h2>
+									<p><?php echo get_excerpt(250); ?></p>
+									<a class="read_more" href="<?php the_permalink(); ?>">Read More &rsaquo;</a>
 								</div>
 							</div>
-							<?php } 
-							} else { ?>
-							
-							<!-- EMPTY PORFOLIO -->
-							<div class="entry-content">
-								<p class="comingsoon">More blog portfolios will be posted here soon. Please check back next time.</p>
-							</div>
-							<?php } ?>
-							<div class="pagination_con">
-								<?php kriesi_pagination($loop->max_num_pages); ?>
-							</div>
-							<div class="clearfix"></div>
 						</div>
+
+						<?php } 
+						} else { ?>
+
+						<!-- EMPTY PORTFOLIO -->
+						<div class="entry-content">
+							<p class="comingsoon">More blog portfolios will be posted here soon. Please check back next time.</p>
+						</div>
+						<?php } ?>
+						<div class="pagination_con">
+							<?php kriesi_pagination($loop->max_num_pages); ?>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+
 					<?php } else { ?>
+
 						<!-- PAGE HAS NO CONTENTS -->
 						<?php if($post->post_content=="" && !is_page('sitemap')) { ?>
 							<p>We are still updating our website with contents. Please check back next time.</p>
 						<?php } ?>
+
 					<?php } ?>
 
 					<div class="entry-content">

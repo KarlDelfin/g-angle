@@ -167,15 +167,13 @@ and (max-width : 768px) {
     .menu_slide_right .hamburger-inner, .menu_slide_right .hamburger-inner::after, .menu_slide_right .hamburger-inner::before {color: var(--thirdColor);     background: var(--thirdColor);}
     .menu_slide_right .toggle_holder {top: 60px; right: 15px;}
 
-    .close {font-size: 35px;}
-
-
     .service_box section { justify-content: center; width: 75%; }
     .service_box { justify-content: center; row-gap: 35px; }
 
     .portfolio_info { width: 100%; }
 
     .contact_details ul li { padding-left:0; }
+    .contact_details ul li:nth-child(2) {padding-left: unset;}
     .contact_details ul li::before { position: static; display: block;top:0;transform: none;left:0; }
     .contact_details { text-align: center;  }
     .contact_details ul{display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 50px;}
@@ -193,6 +191,7 @@ and (max-width : 768px) {
 
 @media only screen
 and (max-width : 600px) {
+    #wpadminbar {position: fixed !important;}
     header{padding: 45px 15px; background: var(--thirdColor);}
     .head_info { width: 223px; position: relative; height: 40px; color: var(--thirdColor);  }
 

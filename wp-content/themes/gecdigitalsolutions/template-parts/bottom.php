@@ -72,7 +72,7 @@
                     <?php } ?>
                 </div>
             </div>
-            <div class="btn_portfolio wow slideInUp">
+            <div class="portfolio_btn wow slideInUp">
                 <a href="portfolio">Visit Our Portfolio</a>
             </div>
 		</div>

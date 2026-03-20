@@ -1,8 +1,14 @@
 /*Fonts Used*/
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700');
 
-:root {--priColor:#9b479b; --secColor:#ef8e59; --priFont: 'Antonio', sans-serif; --bodyFont:'Poppins', sans-serif;--bodyColor:#333; --bodyFontSize:1.8rem; --bodyLineHeight: 30.23px;}
-
+:root {
+	--priFont: Inter, Helvetica, sans-serif; 
+	--secFont: 'Poppins', sans-serif; 
+	--priColor: #f39700;
+	--secColor: #222;
+	--thirdColor: #fff;
+	--bodyColor:#0e0e0e;
+}
 *, *:before, *:after { box-sizing: border-box; -moz-box-sizing: border-box; image-rendering: -webkit-optimize-contrast;}
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,  figure, figcaption, footer, header, hgroup,  menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline; -webkit-text-size-adjust: 100%;}
@@ -43,7 +49,7 @@ a[href^="tel:"]{color: inherit!important; text-decoration: none;}
 .clearfix {clear: both; overflow: hidden;}
 .wrapper{width:980px; max-width:100%; margin:0 auto; padding: 0 12px 24px;}
 
-.fourofour-logo{padding:8px; margin: 10px 0 0; position: relative;width:100%; z-index: 2;background: #fff;display: inline-block;padding: 22px;}
+.fourofour-logo{padding:8px; margin: 10px 0 0; position: relative;width:100%; z-index: 2;background: var(--secColor);display: inline-block;padding: 22px;}
 .fourofour-logo img{width: 341px; max-width: 100%;}
 .for-searching .entry-title{font-size:57px; line-height:100%;}
 .for-searching .search-form {padding:0 10px;}

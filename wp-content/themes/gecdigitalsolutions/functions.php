@@ -95,30 +95,14 @@ function twentysixteen_setup() {
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.
 	 */
-	add_theme_support( 'html5', array(
-		'search-form',
-		'comment-form',
-		'comment-list',
-		'gallery',
-		'caption',
-	) );
+	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', ) );
 
 	/*
 	 * Enable support for Post Formats.
 	 *
 	 * See: https://codex.wordpress.org/Post_Formats
 	 */
-	add_theme_support( 'post-formats', array(
-		'aside',
-		'image',
-		'video',
-		'quote',
-		'link',
-		'gallery',
-		'status',
-		'audio',
-		'chat',
-	) );
+	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link', 'gallery', 'status', 'audio', 'chat', ) );
 
 	/*
 	 * This theme styles the visual editor to resemble the theme style,
@@ -423,7 +407,7 @@ function get_includes( $name = null ) {
 	$name = (string) $name;
 	$templates[] = "template-parts/{$name}.php";
 
-	// Backward compat code will be removed in a future release
+	
 	if ('' == locate_template($templates, true))
 		load_template( ABSPATH . WPINC . '/theme-compat/sidebar.php');
 }
@@ -820,3 +804,4 @@ function bare_acf($atts) {
     return get_field($field_name);
 }
 add_shortcode('acf', 'bare_acf');
+

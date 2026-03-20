@@ -45,10 +45,10 @@
 </div> <!-- End Protect Me -->
 
 	<script src="<?php bloginfo('template_url');?>/assets/js/jquery-3.6.1.min.js"></script>
-	<script src="<?php bloginfo('template_url');?>/assets/js/jquery-migrate-1.4.1.min.js"></script>
-	<script src="<?php bloginfo('template_url');?>/assets/js/jquery.easing.1.3.js"></script>
-	<script src="<?php bloginfo('template_url');?>/assets/js/jquery.skitter.min.js"></script>
-	<script src="<?php bloginfo('template_url');?>/assets/js/responsiveslides.min.js"></script>
+	<!-- <script src="< ?php bloginfo('template_url');?>/assets/js/jquery-migrate-1.4.1.min.js"></script>
+	<script src="< ?php bloginfo('template_url');?>/assets/js/jquery.easing.1.3.js"></script>
+	<script src="< ?php bloginfo('template_url');?>/assets/js/jquery.skitter.min.js"></script>
+	<script src="< ?php bloginfo('template_url');?>/assets/js/responsiveslides.min.js"></script> -->
 	<script src="<?php bloginfo('template_url');?>/assets/js/plugins.min.js"></script>
 	<script src="<?php bloginfo('template_url');?>/assets/js/wow.min.js"></script>
 	<script src="<?php bloginfo('template_url');?>/assets/js/owl.carousel.min.js"></script>

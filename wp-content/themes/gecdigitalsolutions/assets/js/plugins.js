@@ -111,20 +111,25 @@ $(document).ready(function(){
 	});
 
 	/* OWL */
-$(".owl-carousel").owlCarousel({
-    nav: true,
-	navText: ["‹", "›"],
-    dots: false,
-    loop: false,
-    margin: 15,
-    responsive: {
-        0: { items: 1 },
-        600: { items: 1 },
-        768: { items: 2 },
-        1024: { items: 3 }
-    }
-});
+	$(".owl-carousel").owlCarousel({
+		nav: true,
+		navText: ["‹", "›"],
+		dots: false,
+		loop: false,
+		margin: 15,
+		responsive: {
+			0: { items: 1 },
+			600: { items: 1 },
+			768: { items: 2 },
+			1024: { items: 3 }
+		}
+	});
 
 	/* WOW */
 	new WOW().init();
+
+	/* LENIS SCROLL */
+	const lenis = new Lenis()
+	gsap.ticker.add((time)=>{ lenis.raf(time * 1000) })
+	gsap.ticker.lagSmoothing(0)
 });
